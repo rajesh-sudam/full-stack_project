@@ -1,0 +1,27 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Customer {
+  id       Int      @id @default(autoincrement())
+  name     String
+  email    String   @unique
+  phone    String
+  address  String
+
+  projects Project[]
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  projectType String
+  status      String
+  budget      Float
+
+  customerId  Int
+  customer    Customer @relation(fields: [customerId], references: [id])
+}
