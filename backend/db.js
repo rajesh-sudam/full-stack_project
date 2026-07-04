@@ -4,7 +4,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'renewables_db',
-  password: '12345',
+  password: '',
   port: 5432,
 });
 
